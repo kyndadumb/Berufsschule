@@ -14,11 +14,12 @@ public class Auto {
         art= "keine Angabe";
         v = 0.0;
         vMax = 0.0;
-        tank = 0.0;
+        tank = 15.0;
     }
 
     // Methode "kaufen"
-    public void kaufen(){
+    public void kaufen()
+    {
         art = JOptionPane.showInputDialog("Geben Sie die gewünschte Art ein: ", art);
         String eingabe_vMax = JOptionPane.showInputDialog("Geben Sie die maximale Geschwindigkeit ein: ");
         vMax = Double.parseDouble(eingabe_vMax);
@@ -35,7 +36,6 @@ public class Auto {
     public void ausgabe()
     {
         System.out.println(String.format("Der %s fährt aktuell %2.2f km/h und hat noch %3.2f Liter im Tank", art, v, tank));
-
     }
 
     // Methode "beschleunigen" 
@@ -63,15 +63,15 @@ public class Auto {
         v = v >= geschwindigkeit ? v -= geschwindigkeit : 0;   
     }
 
-    public double getBremsweg(){
-        
+    public double getBremsweg()
+    {
         // Formel Bremsweg: (v/10)^2
-        return v / 10.0 * v / 10.0;
+        return Math.pow((v / 10), 2);  
     }
 
     public double getGeschwindigkeit()
     {
-       return this.v;
+        return this.v;
     }
 
     public double getTankfüllung()
